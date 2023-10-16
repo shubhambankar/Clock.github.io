@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Clock start -->
+
+
+    <div class="clock">
+
+        <div class="time">
+
+            <div class="hrs"></div>:
+            <div class="min"></div>:
+            <div class="secs"></div>
+            <div class="ampm"></div>
+        </div>
+
+        <div class="date">
+            <div class="day"></div> &nbsp; &nbsp;
+            <div class="currentDate"></div>/
+            <div class="month"></div>/
+            <div class="year"></div>
+
+        </div>
+    </div>
+
+    <!-- clock ends -->
+
+
+
+
+
+    <script>
+
+
+
+        setInterval(() => {
+
+            var hours = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+
+            var days = ["SUN", "MON", "TUE", "WED", "THURS", "FRI", "SAT"];
+            var months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+
+            var d = new Date();
+
+            document.querySelector('.hrs').innerHTML = d.getHours();
+            document.querySelector('.min').innerHTML = d.getMinutes();
+            document.querySelector('.secs').innerHTML = d.getSeconds();
+            document.querySelector('.ampm').innerHTML = "PM"
+
+            document.querySelector('.day').innerHTML = days[d.getDay()];
+            document.querySelector('.currentDate').innerHTML = d.getDate();
+            document.querySelector('.month').innerHTML = months[d.getMonth()];
+            document.querySelector('.year').innerHTML = d.getFullYear();
+
+            var hr = d.getHours();
+
+            if (hr >= 12) {
+
+                document.querySelector('.ampm').innerHTML = "PM"
+            }
+            else {
+                document.querySelector('.ampm').innerHTML = "AM"
+            }
+
+        }, 1000)
+
+
+
+
+    </script>
+
+</body>
+
+</html>
